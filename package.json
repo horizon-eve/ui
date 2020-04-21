@@ -1,5 +1,5 @@
 {
-  "name": "vue2-admin-lte",
+  "name": "horizon-ui",
   "version": "0.4.3",
   "description": "adminLTE to vuejs v2.x converting project",
   "author": "devjin0617 <devjin0617@gmail.com>",
@@ -46,7 +46,11 @@
     "jquery-ui": "^1.12.1",
     "vue": "^2.2.1",
     "vue-router": "^2.3.0",
-    "vuex": "^2.2.1"
+    "vuex": "^2.2.1",
+    "moment": "^2.24.0",
+    "underscore": "^1.9.2",
+    "vue-bootstrap-typeahead": "^0.2.6",
+    "vue-clipboard2": "^0.3.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",

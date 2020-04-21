@@ -14,12 +14,14 @@
       {{ prefixAddonText }}
       <slot name="slotPrefixAddonText"></slot>
     </span>
+    <slot name="before"></slot>
     <va-input
         :type="type"
         :vaId="vaId"
         :placeholder="placeholder"
         :size="size"
-        :value="value"
+        v-bind:value="value"
+        v-on:input="$emit('input', $event)"
         :isFormControl="type!='file'"
         :isDisabled="isDisabled"
     ></va-input>

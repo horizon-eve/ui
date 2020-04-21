@@ -3,9 +3,9 @@
     <!-- Logo -->
     <a href="index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span v-if="alliance.id" class="logo-mini"><img v-bind:src="`https://images.evetech.net/alliances/${alliance.id}/logo`" class="img-md" v-bind:alt="alliance.ticker"></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span v-if="alliance.id" class="logo-lg"><img v-bind:src="`https://images.evetech.net/alliances/${alliance.id}/logo`" v-bind:alt="alliance.ticker"> {{alliance.name}}</span>
     </a>
 
     <!-- Header Navbar: style can be found in header.less -->
@@ -212,18 +212,18 @@
           </li>
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="~admin-lte/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">{{ currentUser.name }}</span>
+            <a v-if="character.id" href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img v-bind:src="`https://images.evetech.net/Character/${user.character_id}_128.jpg`" class="user-image" alt="User Image">
+              <span class="hidden-xs">{{ character.name }}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
-              <li class="user-header">
-                <img src="~admin-lte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+              <li v-if="character.id" class="user-header">
+                <img v-bind:src="`https://images.evetech.net/Character/${user.character_id}_128.jpg`" class="img-circle" alt="User Image">
 
                 <p>
-                  {{ currentUser.name }} - {{ currentUser.position }}
-                  <small>{{ currentUser.createdAt }}</small>
+                  {{ character.name }} - {{ character.title }}
+                  <small>{{ df(character.birthday) }}</small>
                 </p>
               </li>
               <!-- Menu Body -->
@@ -247,7 +247,7 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="#" class="btn btn-default btn-flat" v-on:click="logoff">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -263,7 +263,8 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import {mapGetters, mapState} from 'vuex'
+import moment from 'moment'
 
 export default {
   name: 'va-navibar',
@@ -272,8 +273,21 @@ export default {
       'unreadMessagesCount',
       'unreadNotificationsCount',
       'remainTasksCount',
-      'currentUser'
+      'user'
+    ]),
+    ...mapState([
+      'alliance',
+      'character'
     ])
+  },
+  methods: {
+    df (d) {
+      return moment(d).format('MM/DD/YYYY hh:mm')
+    },
+    logoff () {
+      localStorage.clear()
+      location.reload()
+    }
   }
 }
 

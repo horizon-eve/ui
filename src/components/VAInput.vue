@@ -11,8 +11,8 @@
         :class="[formControl, getSize]"
         :id="vaId"
         :placeholder="placeholder"
-        :value="value">
-      </input>
+        v-bind:value="value"
+        v-on:input="$emit('input', $event.target.value)">
     </div>
 
   </div>
@@ -21,7 +21,8 @@
          :class="[formControl, getSize]"
          :id="vaId"
          :placeholder="placeholder"
-         :value="value"
+         v-bind:value="value"
+         v-on:input="$emit('input', $event.target.value)"
          :disabled="isDisabled">
   </input>
 

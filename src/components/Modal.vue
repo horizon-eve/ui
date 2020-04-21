@@ -8,7 +8,7 @@
           <h4 class="modal-title" id="bsModalLabel">{{title}}</h4>
         </div>
         <div class="modal-body">
-          {{description}}
+          <slot name="modal-content"></slot>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" @click="cancel">{{cancelText}}</button>
@@ -27,7 +27,6 @@ export default {
       // TODO: args가 올바른지 확인해야함
       this.type = args.type
       this.title = args.title
-      this.description = args.description
       this.confirmText = args.confirmText || '저장 후 닫기'
       this.cancelText = args.cancelText || '닫기'
       this.confirmBeforeHook = args.confirmBefore
@@ -50,7 +49,6 @@ export default {
     return {
       type: '',
       title: '',
-      description: '',
       confirmText: '',
       cancelText: '',
       confirmBeforeHook: () => {},

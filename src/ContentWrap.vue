@@ -4,12 +4,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Dashboard
-        <small>Version 2.0</small>
+        {{ pageName }}
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
+        <li class="active">Horizon</li>
       </ol>
     </section>
 
@@ -27,7 +26,18 @@
 export default {
   name: 'va-content-wrap',
   created () {
-
+    this.pageName = this.$route.meta.pageName
+  },
+  data () {
+    return {
+      pageName: ''
+    }
+  },
+  watch: {
+    '$route' (to, from) {
+      document.title = to.name || ' - Horizon'
+      this.pageName = to.meta.pageName
+    }
   }
 }
 </script>

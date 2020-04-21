@@ -6,15 +6,15 @@ module.exports = [
   },
   {
     type: 'tree',
-    icon: 'fa fa-dashboard',
-    name: 'Dashboard',
+    icon: 'fa fa-bar-chart',
+    name: 'Market',
     items: [
       {
         type: 'item',
         icon: 'fa fa-circle-o',
-        name: '헬로화면',
+        name: 'Item Lists',
         router: {
-          name: 'Hello'
+          name: 'ItemLists'
         }
       },
       {

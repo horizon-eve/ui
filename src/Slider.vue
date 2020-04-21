@@ -5,11 +5,11 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="~admin-lte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img v-if="corporation.id" v-bind:src="`https://images.evetech.net/corporations/${corporation.id}/logo`" class="img-circle" v-bind:alt="corporation.name">
         </div>
         <div class="pull-left info">
-          <p>{{ currentUser.name }}</p>
-          <a href="#"><i class="fa fa-circle" :style="`color:${currentUser.state.color}`"></i> {{ currentUser.state.name }}</a>
+          <p v-if="corporation.id">{{corporation.name}}</p>
+<!--          <a href="#"><i class="fa fa-circle" :style="`color:${currentUser.state.color}`"></i> {{ currentUser.state.name }}</a>-->
         </div>
       </div>
       <!-- search form -->
@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import {mapGetters, mapState} from 'vuex'
 import VASlideItem from './components/VASlideItem'
 
 export default {
@@ -57,12 +57,14 @@ export default {
       default: []
     }
   },
-  created () {
-
-  },
   computed: {
     ...mapGetters([
-      'currentUser'
+      'currentUser',
+      'user'
+    ]),
+    ...mapState([
+      'character',
+      'corporation'
     ])
   },
   components: {

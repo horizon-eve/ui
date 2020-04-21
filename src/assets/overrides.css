@@ -1,0 +1,31 @@
+.skin-red .main-header .logo {
+  background-color: #2b2b2b;
+}
+
+.skin-red .main-header .navbar {
+  background-color: #aa0100;
+}
+
+.skin-red .main-header li.user-header {
+  background-color: #aa0100;
+}
+
+.user-panel {
+  padding-top: 15px;
+}
+
+.navbar-nav>.user-menu .user-image {
+  width: 35px;
+  height: 35px;
+  margin-top: -8px;
+}
+
+.navbar-nav>.user-menu>.dropdown-menu>li.user-header>img {
+  height: 100px;
+  width: 100px;
+}
+
+.alert h4 {
+  font-size: 16px;
+  margin-bottom: 0px;
+}

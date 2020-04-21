@@ -10,8 +10,17 @@ import router from './router'
 import EventBus from './lib/eventBus.js'
 import axios from 'axios'
 
+/** Layouts **/
+import Default from './layouts/Default'
+import Login from './layouts/Login'
+import VueClipboard from 'vue-clipboard2'
+
 Vue.prototype.$bus = EventBus
 Vue.prototype.$http = axios
+
+Vue.component('default-layout', Default)
+Vue.component('login-layout', Login)
+Vue.use(VueClipboard)
 
 /* eslint-disable no-new */
 new Vue({
