@@ -29,3 +29,12 @@
   font-size: 16px;
   margin-bottom: 0px;
 }
+
+.products-list .product-img img {
+  height: 32px;
+  width: 32px;
+}
+
+.products-list>.item {
+  padding: 5px;
+}

@@ -53,7 +53,7 @@
               <ul class="products-list product-list-in-box">
                 <li class="item" v-for="item in itemList.items">
                   <div class="product-img">
-                    <img v-bind:src="'https://images.evetech.net/types/' + item.id + '/icon'" v-bind:alt="item.name"/>
+                    <img v-bind:src="`https://images.evetech.net/types/${item.id}/icon?size=32`" v-bind:alt="item.name"/>
                   </div>
                   <div class="product-info">
                     <span class="product-title">{{item.name}}</span>
