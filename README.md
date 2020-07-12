@@ -200,3 +200,4 @@ Other things that will help resolve your issue:
 
 - Include screenshots and animated gif in your pull request whenever possible.
 - Use short, present tense commit messages.
+
