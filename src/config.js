@@ -1,5 +1,5 @@
 module.exports = {
-  API_BASE_URL: 'http://localhost:3002/api',
-  API_BASE_ESI_URL: 'http://localhost:3002/api/esi',
-  AUTH_BASE_URL: 'http://localhost:3001'
+  API_BASE_URL: 'https://api.racopub.com',
+  API_BASE_ESI_URL: 'https://api.racopub.com/esi',
+  AUTH_BASE_URL: 'https://auth.racopub.com'
 }
