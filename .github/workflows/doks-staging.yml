@@ -7,12 +7,13 @@ on:
   push:
     branches:
       - master
+      - main
     paths:
       - 'config/**'
       - 'deployment/**'
       - 'Dockerfile'
       - '.github/workflows/**'
-
+      - 'src/**
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -25,12 +26,12 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
+
       - name: Install doctl
         uses: digitalocean/action-doctl@v2
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
-          
+
       - name: Build container image
         run: docker build -t registry.digitalocean.com/racopub/racopub-ui:$(echo $GITHUB_SHA | head -c7) .
 

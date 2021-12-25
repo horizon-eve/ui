@@ -16,7 +16,7 @@ const getters = {
 
 const actions = {
   fetch ({state, commit, getters}) {
-    axios.get(`${config.API_BASE_ESI_URL}/corporation/${getters.dataId}`)
+    axios.get(`${config.API_BASE_ESI_URL}/corporations/${getters.dataId}`)
       .then(function (response) {
         let corp = response.data
         if (corp) {

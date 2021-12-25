@@ -16,7 +16,7 @@ const getters = {
 
 const actions = {
   fetch ({state, commit, getters}) {
-    axios.get(`${config.API_BASE_ESI_URL}/alliance/${getters.dataId}`)
+    axios.get(`${config.API_BASE_ESI_URL}/alliances/${getters.dataId}`)
       .then(function (response) {
         let alli = response.data
         if (alli) {
