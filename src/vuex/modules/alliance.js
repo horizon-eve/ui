@@ -16,14 +16,17 @@ const getters = {
 
 const actions = {
   fetch ({state, commit, getters}) {
-    axios.get(`${config.API_BASE_ESI_URL}/alliances/${getters.dataId}`)
-      .then(function (response) {
-        let alli = response.data
-        if (alli) {
-          localStorage.setItem(state._meta.moduleId, JSON.stringify(alli))
-          commit('copyFrom', alli)
-        }
-      })
+    const allianceId = getters.dataId
+    if (allianceId) {
+      axios.get(`${config.API_BASE_ESI_URL}/alliances/${allianceId}`)
+        .then(function (response) {
+          let alli = response.data
+          if (alli) {
+            localStorage.setItem(state._meta.moduleId, JSON.stringify(alli))
+            commit('copyFrom', alli)
+          }
+        })
+    }
   },
   ...module.actions
 }

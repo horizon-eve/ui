@@ -123,7 +123,7 @@
         this.saved = false
       },
       async searchItems (query) {
-        const res = await fetch(config.API_BASE_URL + '/itemsearch?type_name=like=' + query)
+        const res = await fetch(config.API_BASE_URL + '/item_types?type_name=like=' + query)
         const suggestions = await res.json()
         this.itemSuggestions = suggestions // .map(i => i.type_name)
       },
@@ -142,7 +142,7 @@
         let listId = this.itemList.id || this.$route.params.listId
         if (listId && listId !== 'new') {
           axios
-            .get(`${config.API_BASE_URL}/itemlist/${listId}`, {
+            .get(`${config.API_BASE_URL}/itemlists/${listId}`, {
               headers: {
                 'content-type': 'application/x-www-form-urlencoded',
                 'x-hr-authtoken': this.$store.state.auth.auth_token
@@ -158,7 +158,7 @@
         let listId = this.itemList.id || this.$route.params.listId
         if (listId && listId !== 'new') {
           axios
-            .patch(`${config.API_BASE_URL}/itemlist/${listId}`, this.itemList, {
+            .patch(`${config.API_BASE_URL}/itemlists/${listId}`, this.itemList, {
               headers: {
                 'content-type': 'application/json',
                 'x-hr-authtoken': this.$store.state.auth.auth_token
@@ -167,7 +167,7 @@
             .then(response => (this.saved = true))
         } else {
           axios
-            .post(`${config.API_BASE_URL}/itemlist`, this.itemList, {
+            .post(`${config.API_BASE_URL}/itemlists`, this.itemList, {
               headers: {
                 'content-type': 'application/json',
                 'x-hr-authtoken': this.$store.state.auth.auth_token
@@ -238,7 +238,7 @@
               })
             })
             const query = Object.keys(items).map(n => `"${n}"`).join(',')
-            axios.get(`${config.API_BASE_URL}/itemsearch?type_name=in=${query}`)
+            axios.get(`${config.API_BASE_URL}/item_types?type_name=in=${query}`)
               .then(response => {
                 let refined = []
                 response.data.forEach(i => {

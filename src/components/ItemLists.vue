@@ -65,7 +65,7 @@
     },
     mounted () {
       axios
-        .get(`${config.API_BASE_URL}/itemlist`, {
+        .get(`${config.API_BASE_URL}/itemlists`, {
           headers: {
             'content-type': 'application/x-www-form-urlencoded',
             'x-hr-authtoken': this.$store.state.auth.auth_token
