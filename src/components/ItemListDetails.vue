@@ -93,14 +93,13 @@
 
 <script>
   import _ from 'underscore'
-  import config from '../config'
   import VABox from '../widgets/VABox'
   import VAInputGroup from '../components/VAInputGroup'
   import VueBootstrapTypeahead from 'vue-bootstrap-typeahead'
   import VAAlert from '../components/VAAlert.vue'
   import Modal from '../components/Modal.vue'
 
-  import axios from 'axios'
+  import {services} from '../vuex/api'
 
   export default {
     name: 'general-elements',
@@ -123,9 +122,9 @@
         this.saved = false
       },
       async searchItems (query) {
-        const res = await fetch(config.API_BASE_URL + '/item_types?type_name=like=' + query)
-        const suggestions = await res.json()
-        this.itemSuggestions = suggestions // .map(i => i.type_name)
+        await services.item_types.read({type_name: `like=${query}`}, function (data) {
+          this.itemSuggestions = data
+        })
       },
       addSelectedItem () {
         this.itemList.items.push({
@@ -141,14 +140,9 @@
       fetchItemList: function () {
         let listId = this.itemList.id || this.$route.params.listId
         if (listId && listId !== 'new') {
-          axios
-            .get(`${config.API_BASE_URL}/itemlists/${listId}`, {
-              headers: {
-                'content-type': 'application/x-www-form-urlencoded',
-                'x-hr-authtoken': this.$store.state.auth.auth_token
-              }
-            })
-            .then(response => (this.itemList = response.data))
+          services.itemlists.get(listId, data => {
+            this.itemList = data
+          })
         } else {
           this.reset()
         }
@@ -157,23 +151,15 @@
       saveItemList: function () {
         let listId = this.itemList.id || this.$route.params.listId
         if (listId && listId !== 'new') {
-          axios
-            .patch(`${config.API_BASE_URL}/itemlists/${listId}`, this.itemList, {
-              headers: {
-                'content-type': 'application/json',
-                'x-hr-authtoken': this.$store.state.auth.auth_token
-              }
-            })
-            .then(response => (this.saved = true))
+          services.itemlists.update(this.itemList, () => {
+            this.saved = true
+          })
         } else {
-          axios
-            .post(`${config.API_BASE_URL}/itemlists`, this.itemList, {
-              headers: {
-                'content-type': 'application/json',
-                'x-hr-authtoken': this.$store.state.auth.auth_token
-              }
-            })
-            .then(response => (this.itemList.id = response.data.id))
+          delete this.itemList.id
+          services.itemlists.create(this.itemList, id => {
+            this.itemList.id = id
+            this.saved = true
+          })
         }
       },
       openModal () {
@@ -238,22 +224,21 @@
               })
             })
             const query = Object.keys(items).map(n => `"${n}"`).join(',')
-            axios.get(`${config.API_BASE_URL}/item_types?type_name=in=${query}`)
-              .then(response => {
-                let refined = []
-                response.data.forEach(i => {
-                  let item = items[i.type_name]
-                  if (item) {
-                    item.id = i.type_id
-                    item.group = i.group_name
-                  }
-                  refined.push(item)
-                })
-                this.itemList.items = refined
-                if (itemListName) {
-                  this.itemList.name = itemListName
+            services.item_types.read({type_name: `in=${query}`}, data => {
+              let refined = []
+              data.forEach(i => {
+                let item = items[i.type_name]
+                if (item) {
+                  item.id = i.type_id
+                  item.group = i.group_name
                 }
+                refined.push(item)
               })
+              this.itemList.items = refined
+              if (itemListName) {
+                this.itemList.name = itemListName
+              }
+            })
           }
         }
       }

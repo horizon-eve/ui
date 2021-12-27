@@ -49,8 +49,7 @@
 </template>
 
 <script>
-  import axios from 'axios'
-  import config from '../config'
+  import {services} from '../vuex/api'
   export default {
     name: 'ItemLists',
     data () {
@@ -64,14 +63,9 @@
       }
     },
     mounted () {
-      axios
-        .get(`${config.API_BASE_URL}/itemlists`, {
-          headers: {
-            'content-type': 'application/x-www-form-urlencoded',
-            'x-hr-authtoken': this.$store.state.auth.auth_token
-          }
-        })
-        .then(response => (this.itemLists = response.data))
+      services.itemlists.read({}, data => {
+        this.itemLists = data
+      })
     }
   }
 </script>

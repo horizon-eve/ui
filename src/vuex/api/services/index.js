@@ -1,5 +1,14 @@
-import products from './products'
+/* eslint-disable camelcase */
+import evesde from './evesde'
+import esi from './esi'
+import item_types from './item_types'
+import itemlists from './itemlists'
+import users from './users'
 
 export default {
-  products
+  evesde,
+  esi,
+  item_types,
+  itemlists,
+  users
 }
