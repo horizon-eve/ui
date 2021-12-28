@@ -14,7 +14,7 @@ module.exports = [
         icon: 'fa fa-circle-o',
         name: 'Item Lists',
         router: {
-          name: 'ItemLists'
+          name: 'Market_ItemLists'
         }
       },
       {
@@ -82,6 +82,20 @@ module.exports = [
         }
       }
     ]
+  },
+  {
+    type: 'tree',
+    icon: 'fa fa-flask',
+    name: 'Science',
+    items: [
+      {
+        type: 'item',
+        icon: 'fa fa-circle-o',
+        name: 'Research Jobs',
+        router: {
+          name: 'Science_ResearchJobs'
+        }
+      }]
   },
   {
     type: 'tree',

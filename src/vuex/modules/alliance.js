@@ -1,6 +1,5 @@
 import Module from '../base-module'
-import config from '../../config'
-import axios from 'axios'
+import {services} from '../api'
 
 let module = new Module('alliance', 'id')
 
@@ -18,14 +17,12 @@ const actions = {
   fetch ({state, commit, getters}) {
     const allianceId = getters.dataId
     if (allianceId) {
-      axios.get(`${config.API_BASE_ESI_URL}/alliances/${allianceId}`)
-        .then(function (response) {
-          let alli = response.data
-          if (alli) {
-            localStorage.setItem(state._meta.moduleId, JSON.stringify(alli))
-            commit('copyFrom', alli)
-          }
-        })
+      services.esi.alliance.get_alliances_alliance_id(allianceId, alliance => {
+        if (alliance) {
+          localStorage.setItem(state._meta.moduleId, JSON.stringify(alliance))
+          commit('copyFrom', alliance)
+        }
+      })
     }
   },
   ...module.actions

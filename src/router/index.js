@@ -1,9 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import ItemLists from 'components/ItemLists.vue'
+// Horizon components:
 import Login from 'components/Login.vue'
 import LoginVerify from 'components/LoginVerify.vue'
-import ItemListDetails from 'components/ItemListDetails'
+import ItemLists from 'components/Market_ItemLists.vue'
+import ItemListDetails from 'components/Market_ItemListDetails'
+import ResearchJobs from 'components/Science_ResearchJobs'
+// Samples:
 import DashboardV1 from 'examples/Dashboard.v1.vue'
 import DashboardV2 from 'examples/Dashboard.v2.vue'
 import InfoBoxExample from 'examples/InfoBoxExample'
@@ -44,15 +47,21 @@ const router = new Router({
     },
     {
       path: '/item-lists',
-      name: 'ItemLists',
+      name: 'Market_ItemLists',
       component: ItemLists,
       meta: { pageName: 'Item Lists' }
     },
     {
       path: '/item-lists/:listId',
-      name: 'ItemListDetail',
+      name: 'Market_ItemListDetail',
       component: ItemListDetails,
       meta: { pageName: 'Item List Details' }
+    },
+    {
+      path: '/research-jobs',
+      name: 'Science_ResearchJobs',
+      component: ResearchJobs,
+      meta: { pageName: 'Research Jobs' }
     },
     {
       path: '/dashboard/v1',

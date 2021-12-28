@@ -1,6 +1,5 @@
 import Module from '../base-module'
-import config from '../../config'
-import axios from 'axios'
+import {services} from '../api'
 
 let module = new Module('user', 'user_id', ['character'])
 
@@ -25,22 +24,15 @@ const getters = {
 
 const actions = {
   fetch ({state, commit, getters}) {
-    axios.get(`${config.API_BASE_URL}/users/${getters.dataId}`, {
-      headers: {
-        'content-type': 'application/x-www-form-urlencoded',
-        'x-hr-authtoken': this.state.auth.auth_token
+    services.users.read({}, user => {
+      if (user) {
+        if (Array.isArray(user)) {
+          user = user[0]
+        }
+        localStorage.setItem(state._meta.moduleId, JSON.stringify(user))
+        commit('copyFrom', user)
       }
     })
-      .then(function (response) {
-        let user = response.data
-        if (user) {
-          if (Array.isArray(user)) {
-            user = user[0]
-          }
-          localStorage.setItem(state._meta.moduleId, JSON.stringify(user))
-          commit('copyFrom', user)
-        }
-      })
   },
   ...module.actions
 }

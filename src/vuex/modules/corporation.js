@@ -1,6 +1,4 @@
 import Module from '../base-module'
-import config from '../../config'
-import axios from 'axios'
 
 let module = new Module('corporation', 'id')
 
@@ -16,14 +14,12 @@ const getters = {
 
 const actions = {
   fetch ({state, commit, getters}) {
-    axios.get(`${config.API_BASE_ESI_URL}/corporations/${getters.dataId}`)
-      .then(function (response) {
-        let corp = response.data
-        if (corp) {
-          localStorage.setItem(state._meta.moduleId, JSON.stringify(corp))
-          commit('copyFrom', corp)
-        }
-      })
+    services.esi.corporation.get_corporations_corporation_id(getters.dataId, corporation => {
+      if (corporation) {
+        localStorage.setItem(state._meta.moduleId, JSON.stringify(corporation))
+        commit('copyFrom', corporation)
+      }
+    })
   },
   ...module.actions
 }
