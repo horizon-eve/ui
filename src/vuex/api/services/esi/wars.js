@@ -14,9 +14,9 @@ export default {
    * }
    */
   get_wars (max_war_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/wars/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_wars?max_war_id=${max_war_id}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -41,9 +41,9 @@ export default {
    * }
    */
   get_wars_war_id (war_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/wars/${war_id}/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_wars_war_id?war_id=${war_id}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -62,8 +62,8 @@ export default {
    * }
    */
   get_wars_war_id_killmails (page, war_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/wars/${war_id}/killmails/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_wars_war_id_killmails?page=${page}&war_id=${war_id}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   }
 }

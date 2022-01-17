@@ -29,8 +29,8 @@ export default {
    * }
    */
   get_incursions (done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/incursions/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_incursions`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   }
 }

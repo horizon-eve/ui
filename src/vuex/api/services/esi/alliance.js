@@ -13,9 +13,9 @@ export default {
    * }
    */
   get_alliances (done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/alliances/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_alliances`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -32,9 +32,9 @@ export default {
    * }
    */
   get_alliances_alliance_id (alliance_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/alliances/${alliance_id}/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_alliances_alliance_id?alliance_id=${alliance_id}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -46,9 +46,9 @@ export default {
    * }
    */
   get_alliances_alliance_id_corporations (alliance_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/alliances/${alliance_id}/corporations/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_alliances_alliance_id_corporations?alliance_id=${alliance_id}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -61,8 +61,8 @@ export default {
    * }
    */
   get_alliances_alliance_id_icons (alliance_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/alliances/${alliance_id}/icons/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_alliances_alliance_id_icons?alliance_id=${alliance_id}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   }
 }

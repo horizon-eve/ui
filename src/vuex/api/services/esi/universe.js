@@ -19,9 +19,9 @@ export default {
    * }
    */
   get_universe_ancestries (done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/universe/ancestries/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_universe_ancestries`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -39,9 +39,9 @@ export default {
    * }
    */
   get_universe_asteroid_belts_asteroid_belt_id (asteroid_belt_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/universe/asteroid_belts/${asteroid_belt_id}/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_universe_asteroid_belts_asteroid_belt_id?asteroid_belt_id=${asteroid_belt_id}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -65,9 +65,9 @@ export default {
    * }
    */
   get_universe_bloodlines (done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/universe/bloodlines/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_universe_bloodlines`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -81,9 +81,9 @@ export default {
    * }
    */
   get_universe_categories (done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/universe/categories/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_universe_categories`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -102,9 +102,9 @@ export default {
    * }
    */
   get_universe_categories_category_id (category_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/universe/categories/${category_id}/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_universe_categories_category_id?category_id=${category_id}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -117,9 +117,9 @@ export default {
    * }
    */
   get_universe_constellations (done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/universe/constellations/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_universe_constellations`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -142,9 +142,9 @@ export default {
    * }
    */
   get_universe_constellations_constellation_id (constellation_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/universe/constellations/${constellation_id}/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_universe_constellations_constellation_id?constellation_id=${constellation_id}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -166,9 +166,9 @@ export default {
    * }
    */
   get_universe_factions (done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/universe/factions/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_universe_factions`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -181,9 +181,9 @@ export default {
    * }
    */
   get_universe_graphics (done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/universe/graphics/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_universe_graphics`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -196,9 +196,9 @@ export default {
    * }
    */
   get_universe_graphics_graphic_id (graphic_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/universe/graphics/${graphic_id}/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_universe_graphics_graphic_id?graphic_id=${graphic_id}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -212,9 +212,9 @@ export default {
    * }
    */
   get_universe_groups (page, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/universe/groups/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_universe_groups?page=${page}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -234,9 +234,9 @@ export default {
    * }
    */
   get_universe_groups_group_id (group_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/universe/groups/${group_id}/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_universe_groups_group_id?group_id=${group_id}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -263,9 +263,9 @@ export default {
    * }
    */
   post_universe_ids (done) {
-    return axios.post(`${config.API_BASE_URL}/esi/latest/universe/ids/`)
+    return axios.post(`${config.ESI_BASE_URL}/post_universe_ids`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -284,9 +284,9 @@ export default {
    * }
    */
   get_universe_moons_moon_id (moon_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/universe/moons/${moon_id}/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_universe_moons_moon_id?moon_id=${moon_id}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -307,9 +307,9 @@ export default {
    * }
    */
   post_universe_names (done) {
-    return axios.post(`${config.API_BASE_URL}/esi/latest/universe/names/`)
+    return axios.post(`${config.ESI_BASE_URL}/post_universe_names`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -329,9 +329,9 @@ export default {
    * }
    */
   get_universe_planets_planet_id (planet_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/universe/planets/${planet_id}/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_universe_planets_planet_id?planet_id=${planet_id}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -348,9 +348,9 @@ export default {
    * }
    */
   get_universe_races (done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/universe/races/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_universe_races`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -363,9 +363,9 @@ export default {
    * }
    */
   get_universe_regions (done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/universe/regions/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_universe_regions`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -383,9 +383,9 @@ export default {
    * }
    */
   get_universe_regions_region_id (region_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/universe/regions/${region_id}/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_universe_regions_region_id?region_id=${region_id}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -409,9 +409,9 @@ export default {
    * }
    */
   get_universe_stargates_stargate_id (stargate_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/universe/stargates/${stargate_id}/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_universe_stargates_stargate_id?stargate_id=${stargate_id}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -430,9 +430,9 @@ export default {
    * }
    */
   get_universe_stars_star_id (star_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/universe/stars/${star_id}/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_universe_stars_star_id?star_id=${star_id}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -472,9 +472,9 @@ export default {
    * }
    */
   get_universe_stations_station_id (station_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/universe/stations/${station_id}/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_universe_stations_station_id?station_id=${station_id}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -487,9 +487,9 @@ export default {
    * }
    */
   get_universe_structures (filter, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/universe/structures/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_universe_structures?filter=${filter}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -503,14 +503,14 @@ export default {
    * }
    */
   get_universe_structures_structure_id (structure_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/universe/structures/${structure_id}/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_universe_structures_structure_id?structure_id=${structure_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -525,9 +525,9 @@ export default {
    * }
    */
   get_universe_system_jumps (done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/universe/system_jumps/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_universe_system_jumps`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -544,9 +544,9 @@ export default {
    * }
    */
   get_universe_system_kills (done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/universe/system_kills/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_universe_system_kills`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -559,9 +559,9 @@ export default {
    * }
    */
   get_universe_systems (done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/universe/systems/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_universe_systems`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -597,9 +597,9 @@ export default {
    * }
    */
   get_universe_systems_system_id (system_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/universe/systems/${system_id}/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_universe_systems_system_id?system_id=${system_id}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -613,9 +613,9 @@ export default {
    * }
    */
   get_universe_types (page, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/universe/types/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_universe_types?page=${page}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -631,8 +631,8 @@ export default {
    * }
    */
   get_universe_types_type_id (type_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/universe/types/${type_id}/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_universe_types_type_id?type_id=${type_id}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   }
 }

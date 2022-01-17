@@ -30,14 +30,14 @@ export default {
    * }
    */
   get_characters_character_id_planets (character_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/characters/${character_id}/planets/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_planets?character_id=${character_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -78,14 +78,14 @@ export default {
    * }
    */
   get_characters_character_id_planets_planet_id (character_id, planet_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/characters/${character_id}/planets/${planet_id}/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_planets_planet_id?character_id=${character_id}&planet_id=${planet_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -110,14 +110,14 @@ export default {
    * }
    */
   get_corporations_corporation_id_customs_offices (corporation_id, page, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/corporations/${corporation_id}/customs_offices/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_corporations_corporation_id_customs_offices?corporation_id=${corporation_id}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -130,8 +130,8 @@ export default {
    * }
    */
   get_universe_schematics_schematic_id (schematic_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/universe/schematics/${schematic_id}/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_universe_schematics_schematic_id?schematic_id=${schematic_id}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   }
 }

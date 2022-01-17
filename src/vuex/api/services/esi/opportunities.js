@@ -16,14 +16,14 @@ export default {
    * }
    */
   get_characters_character_id_opportunities (character_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/characters/${character_id}/opportunities/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_opportunities?character_id=${character_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -38,9 +38,9 @@ export default {
    * }
    */
   get_opportunities_groups (done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/opportunities/groups/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_opportunities_groups`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -61,9 +61,9 @@ export default {
    * }
    */
   get_opportunities_groups_group_id (group_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/opportunities/groups/${group_id}/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_opportunities_groups_group_id?group_id=${group_id}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -78,9 +78,9 @@ export default {
    * }
    */
   get_opportunities_tasks (done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/opportunities/tasks/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_opportunities_tasks`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -95,8 +95,8 @@ export default {
    * }
    */
   get_opportunities_tasks_task_id (task_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/opportunities/tasks/${task_id}/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_opportunities_tasks_task_id?task_id=${task_id}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   }
 }

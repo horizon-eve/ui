@@ -22,14 +22,14 @@ export default {
    * }
    */
   get_characters_character_id_assets (character_id, page, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/characters/${character_id}/assets/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_assets?character_id=${character_id}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -48,14 +48,14 @@ export default {
    * }
    */
   post_characters_character_id_assets_locations (character_id, done) {
-    return axios.post(`${config.API_BASE_URL}/esi/latest/characters/${character_id}/assets/locations/`, {
+    return axios.post(`${config.ESI_BASE_URL}/post_characters_character_id_assets_locations?character_id=${character_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -70,14 +70,14 @@ export default {
    * }
    */
   post_characters_character_id_assets_names (character_id, done) {
-    return axios.post(`${config.API_BASE_URL}/esi/latest/characters/${character_id}/assets/names/`, {
+    return axios.post(`${config.ESI_BASE_URL}/post_characters_character_id_assets_names?character_id=${character_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -98,14 +98,14 @@ export default {
    * }
    */
   get_corporations_corporation_id_assets (corporation_id, page, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/corporations/${corporation_id}/assets/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_corporations_corporation_id_assets?corporation_id=${corporation_id}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -124,14 +124,14 @@ export default {
    * }
    */
   post_corporations_corporation_id_assets_locations (corporation_id, done) {
-    return axios.post(`${config.API_BASE_URL}/esi/latest/corporations/${corporation_id}/assets/locations/`, {
+    return axios.post(`${config.ESI_BASE_URL}/post_corporations_corporation_id_assets_locations?corporation_id=${corporation_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -146,13 +146,13 @@ export default {
    * }
    */
   post_corporations_corporation_id_assets_names (corporation_id, done) {
-    return axios.post(`${config.API_BASE_URL}/esi/latest/corporations/${corporation_id}/assets/names/`, {
+    return axios.post(`${config.ESI_BASE_URL}/post_corporations_corporation_id_assets_names?corporation_id=${corporation_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   }
 }

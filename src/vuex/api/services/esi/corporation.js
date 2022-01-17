@@ -15,9 +15,9 @@ export default {
    * }
    */
   get_corporations_npccorps (done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/corporations/npccorps/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_corporations_npccorps`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -38,9 +38,9 @@ export default {
    * }
    */
   get_corporations_corporation_id (corporation_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/corporations/${corporation_id}/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_corporations_corporation_id?corporation_id=${corporation_id}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -61,9 +61,9 @@ export default {
    * }
    */
   get_corporations_corporation_id_alliancehistory (corporation_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/corporations/${corporation_id}/alliancehistory/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_corporations_corporation_id_alliancehistory?corporation_id=${corporation_id}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -84,14 +84,14 @@ export default {
    * }
    */
   get_corporations_corporation_id_blueprints (corporation_id, page, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/corporations/${corporation_id}/blueprints/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_corporations_corporation_id_blueprints?corporation_id=${corporation_id}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -134,14 +134,14 @@ export default {
    * }
    */
   get_corporations_corporation_id_containers_logs (corporation_id, page, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/corporations/${corporation_id}/containers/logs/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_corporations_corporation_id_containers_logs?corporation_id=${corporation_id}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -164,14 +164,14 @@ export default {
    * }
    */
   get_corporations_corporation_id_divisions (corporation_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/corporations/${corporation_id}/divisions/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_corporations_corporation_id_divisions?corporation_id=${corporation_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -187,14 +187,14 @@ export default {
    * }
    */
   get_corporations_corporation_id_facilities (corporation_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/corporations/${corporation_id}/facilities/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_corporations_corporation_id_facilities?corporation_id=${corporation_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -208,9 +208,9 @@ export default {
    * }
    */
   get_corporations_corporation_id_icons (corporation_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/corporations/${corporation_id}/icons/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_corporations_corporation_id_icons?corporation_id=${corporation_id}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -228,14 +228,14 @@ export default {
    * }
    */
   get_corporations_corporation_id_medals (corporation_id, page, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/corporations/${corporation_id}/medals/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_corporations_corporation_id_medals?corporation_id=${corporation_id}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -254,14 +254,14 @@ export default {
    * }
    */
   get_corporations_corporation_id_medals_issued (corporation_id, page, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/corporations/${corporation_id}/medals/issued/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_corporations_corporation_id_medals_issued?corporation_id=${corporation_id}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -274,14 +274,14 @@ export default {
    * }
    */
   get_corporations_corporation_id_members (corporation_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/corporations/${corporation_id}/members/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_corporations_corporation_id_members?corporation_id=${corporation_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -291,14 +291,14 @@ export default {
    * }
    */
   get_corporations_corporation_id_members_limit (corporation_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/corporations/${corporation_id}/members/limit/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_corporations_corporation_id_members_limit?corporation_id=${corporation_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -313,14 +313,14 @@ export default {
    * }
    */
   get_corporations_corporation_id_members_titles (corporation_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/corporations/${corporation_id}/members/titles/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_corporations_corporation_id_members_titles?corporation_id=${corporation_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -347,14 +347,14 @@ export default {
    * }
    */
   get_corporations_corporation_id_membertracking (corporation_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/corporations/${corporation_id}/membertracking/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_corporations_corporation_id_membertracking?corporation_id=${corporation_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -372,14 +372,14 @@ export default {
    * }
    */
   get_corporations_corporation_id_roles (corporation_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/corporations/${corporation_id}/roles/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_corporations_corporation_id_roles?corporation_id=${corporation_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -402,14 +402,14 @@ export default {
    * }
    */
   get_corporations_corporation_id_roles_history (corporation_id, page, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/corporations/${corporation_id}/roles/history/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_corporations_corporation_id_roles_history?corporation_id=${corporation_id}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -440,14 +440,14 @@ export default {
    * }
    */
   get_corporations_corporation_id_shareholders (corporation_id, page, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/corporations/${corporation_id}/shareholders/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_corporations_corporation_id_shareholders?corporation_id=${corporation_id}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -473,14 +473,14 @@ export default {
    * }
    */
   get_corporations_corporation_id_standings (corporation_id, page, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/corporations/${corporation_id}/standings/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_corporations_corporation_id_standings?corporation_id=${corporation_id}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -496,14 +496,14 @@ export default {
    * }
    */
   get_corporations_corporation_id_starbases (corporation_id, page, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/corporations/${corporation_id}/starbases/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_corporations_corporation_id_starbases?corporation_id=${corporation_id}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -525,14 +525,14 @@ export default {
    * }
    */
   get_corporations_corporation_id_starbases_starbase_id (corporation_id, starbase_id, system_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/corporations/${corporation_id}/starbases/${starbase_id}/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_corporations_corporation_id_starbases_starbase_id?corporation_id=${corporation_id}&starbase_id=${starbase_id}&system_id=${system_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -553,14 +553,14 @@ export default {
    * }
    */
   get_corporations_corporation_id_structures (corporation_id, page, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/corporations/${corporation_id}/structures/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_corporations_corporation_id_structures?corporation_id=${corporation_id}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -579,13 +579,13 @@ export default {
    * }
    */
   get_corporations_corporation_id_titles (corporation_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/corporations/${corporation_id}/titles/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_corporations_corporation_id_titles?corporation_id=${corporation_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   }
 }

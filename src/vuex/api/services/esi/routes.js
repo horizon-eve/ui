@@ -15,8 +15,8 @@ export default {
    * }
    */
   get_route_origin_destination (avoid, connections, destination, flag, origin, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/route/${origin}/${destination}/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_route_origin_destination?avoid=${avoid}&connections=${connections}&destination=${destination}&flag=${flag}&origin=${origin}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   }
 }

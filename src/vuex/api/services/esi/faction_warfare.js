@@ -24,14 +24,14 @@ export default {
    * }
    */
   get_characters_character_id_fw_stats (character_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/characters/${character_id}/fw/stats/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_fw_stats?character_id=${character_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -55,14 +55,14 @@ export default {
    * }
    */
   get_corporations_corporation_id_fw_stats (corporation_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/corporations/${corporation_id}/fw/stats/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_corporations_corporation_id_fw_stats?corporation_id=${corporation_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -137,9 +137,9 @@ export default {
    * }
    */
   get_fw_leaderboards (done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/fw/leaderboards/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_fw_leaderboards`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -214,9 +214,9 @@ export default {
    * }
    */
   get_fw_leaderboards_characters (done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/fw/leaderboards/characters/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_fw_leaderboards_characters`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -291,9 +291,9 @@ export default {
    * }
    */
   get_fw_leaderboards_corporations (done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/fw/leaderboards/corporations/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_fw_leaderboards_corporations`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -319,9 +319,9 @@ export default {
    * }
    */
   get_fw_stats (done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/fw/stats/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_fw_stats`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -340,9 +340,9 @@ export default {
    * }
    */
   get_fw_systems (done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/fw/systems/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_fw_systems`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -357,8 +357,8 @@ export default {
    * }
    */
   get_fw_wars (done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/fw/wars/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_fw_wars`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   }
 }

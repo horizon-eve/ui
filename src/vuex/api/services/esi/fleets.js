@@ -16,14 +16,14 @@ export default {
    * }
    */
   get_characters_character_id_fleet (character_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/characters/${character_id}/fleet/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_fleet?character_id=${character_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -38,14 +38,14 @@ export default {
    * }
    */
   get_fleets_fleet_id (fleet_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/fleets/${fleet_id}/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_fleets_fleet_id?fleet_id=${fleet_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -53,14 +53,14 @@ export default {
    *
    */
   put_fleets_fleet_id (fleet_id, done) {
-    return axios.put(`${config.API_BASE_URL}/esi/latest/fleets/${fleet_id}/`, {
+    return axios.put(`${config.ESI_BASE_URL}/put_fleets_fleet_id?fleet_id=${fleet_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -83,14 +83,14 @@ export default {
    * }
    */
   get_fleets_fleet_id_members (fleet_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/fleets/${fleet_id}/members/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_fleets_fleet_id_members?fleet_id=${fleet_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -98,14 +98,14 @@ export default {
    *
    */
   post_fleets_fleet_id_members (fleet_id, done) {
-    return axios.post(`${config.API_BASE_URL}/esi/latest/fleets/${fleet_id}/members/`, {
+    return axios.post(`${config.ESI_BASE_URL}/post_fleets_fleet_id_members?fleet_id=${fleet_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -113,14 +113,14 @@ export default {
    *
    */
   delete_fleets_fleet_id_members_member_id (fleet_id, member_id, done) {
-    return axios.delete(`${config.API_BASE_URL}/esi/latest/fleets/${fleet_id}/members/${member_id}/`, {
+    return axios.delete(`${config.ESI_BASE_URL}/delete_fleets_fleet_id_members_member_id?fleet_id=${fleet_id}&member_id=${member_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -128,14 +128,14 @@ export default {
    *
    */
   put_fleets_fleet_id_members_member_id (fleet_id, member_id, done) {
-    return axios.put(`${config.API_BASE_URL}/esi/latest/fleets/${fleet_id}/members/${member_id}/`, {
+    return axios.put(`${config.ESI_BASE_URL}/put_fleets_fleet_id_members_member_id?fleet_id=${fleet_id}&member_id=${member_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -143,14 +143,14 @@ export default {
    *
    */
   delete_fleets_fleet_id_squads_squad_id (fleet_id, squad_id, done) {
-    return axios.delete(`${config.API_BASE_URL}/esi/latest/fleets/${fleet_id}/squads/${squad_id}/`, {
+    return axios.delete(`${config.ESI_BASE_URL}/delete_fleets_fleet_id_squads_squad_id?fleet_id=${fleet_id}&squad_id=${squad_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -158,14 +158,14 @@ export default {
    *
    */
   put_fleets_fleet_id_squads_squad_id (fleet_id, squad_id, done) {
-    return axios.put(`${config.API_BASE_URL}/esi/latest/fleets/${fleet_id}/squads/${squad_id}/`, {
+    return axios.put(`${config.ESI_BASE_URL}/put_fleets_fleet_id_squads_squad_id?fleet_id=${fleet_id}&squad_id=${squad_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -186,14 +186,14 @@ export default {
    * }
    */
   get_fleets_fleet_id_wings (fleet_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/fleets/${fleet_id}/wings/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_fleets_fleet_id_wings?fleet_id=${fleet_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -201,14 +201,14 @@ export default {
    *
    */
   post_fleets_fleet_id_wings (fleet_id, done) {
-    return axios.post(`${config.API_BASE_URL}/esi/latest/fleets/${fleet_id}/wings/`, {
+    return axios.post(`${config.ESI_BASE_URL}/post_fleets_fleet_id_wings?fleet_id=${fleet_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -216,14 +216,14 @@ export default {
    *
    */
   delete_fleets_fleet_id_wings_wing_id (fleet_id, wing_id, done) {
-    return axios.delete(`${config.API_BASE_URL}/esi/latest/fleets/${fleet_id}/wings/${wing_id}/`, {
+    return axios.delete(`${config.ESI_BASE_URL}/delete_fleets_fleet_id_wings_wing_id?fleet_id=${fleet_id}&wing_id=${wing_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -231,14 +231,14 @@ export default {
    *
    */
   put_fleets_fleet_id_wings_wing_id (fleet_id, wing_id, done) {
-    return axios.put(`${config.API_BASE_URL}/esi/latest/fleets/${fleet_id}/wings/${wing_id}/`, {
+    return axios.put(`${config.ESI_BASE_URL}/put_fleets_fleet_id_wings_wing_id?fleet_id=${fleet_id}&wing_id=${wing_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -246,13 +246,13 @@ export default {
    *
    */
   post_fleets_fleet_id_wings_wing_id_squads (fleet_id, wing_id, done) {
-    return axios.post(`${config.API_BASE_URL}/esi/latest/fleets/${fleet_id}/wings/${wing_id}/squads/`, {
+    return axios.post(`${config.ESI_BASE_URL}/post_fleets_fleet_id_wings_wing_id_squads?fleet_id=${fleet_id}&wing_id=${wing_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   }
 }

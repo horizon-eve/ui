@@ -30,14 +30,14 @@ export default {
    * }
    */
   get_characters_character_id_industry_jobs (character_id, include_completed, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/characters/${character_id}/industry/jobs/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_industry_jobs?character_id=${character_id}&include_completed=${include_completed}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -60,14 +60,14 @@ export default {
    * }
    */
   get_characters_character_id_mining (character_id, page, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/characters/${character_id}/mining/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_mining?character_id=${character_id}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -85,14 +85,14 @@ export default {
    * }
    */
   get_corporation_corporation_id_mining_extractions (corporation_id, page, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/corporation/${corporation_id}/mining/extractions/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_corporation_corporation_id_mining_extractions?corporation_id=${corporation_id}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -108,14 +108,14 @@ export default {
    * }
    */
   get_corporation_corporation_id_mining_observers (corporation_id, page, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/corporation/${corporation_id}/mining/observers/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_corporation_corporation_id_mining_observers?corporation_id=${corporation_id}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -133,14 +133,14 @@ export default {
    * }
    */
   get_corporation_corporation_id_mining_observers_observer_id (corporation_id, observer_id, page, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/corporation/${corporation_id}/mining/observers/${observer_id}/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_corporation_corporation_id_mining_observers_observer_id?corporation_id=${corporation_id}&observer_id=${observer_id}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -169,14 +169,14 @@ export default {
    * }
    */
   get_corporations_corporation_id_industry_jobs (corporation_id, include_completed, page, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/corporations/${corporation_id}/industry/jobs/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_corporations_corporation_id_industry_jobs?corporation_id=${corporation_id}&include_completed=${include_completed}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -195,9 +195,9 @@ export default {
    * }
    */
   get_industry_facilities (done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/industry/facilities/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_industry_facilities`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -217,8 +217,8 @@ export default {
    * }
    */
   get_industry_systems (done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/industry/systems/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_industry_systems`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   }
 }

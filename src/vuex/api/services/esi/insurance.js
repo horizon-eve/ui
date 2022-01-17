@@ -21,8 +21,8 @@ export default {
    * }
    */
   get_insurance_prices (done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/insurance/prices/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_insurance_prices`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   }
 }

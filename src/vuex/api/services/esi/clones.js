@@ -26,14 +26,14 @@ export default {
    * }
    */
   get_characters_character_id_clones (character_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/characters/${character_id}/clones/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_clones?character_id=${character_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -47,13 +47,13 @@ export default {
    * }
    */
   get_characters_character_id_implants (character_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/characters/${character_id}/implants/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_implants?character_id=${character_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   }
 }

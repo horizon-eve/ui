@@ -14,9 +14,9 @@ export default {
    * }
    */
   get_dogma_attributes (done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/dogma/attributes/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_dogma_attributes`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -36,9 +36,9 @@ export default {
    * }
    */
   get_dogma_attributes_attribute_id (attribute_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/dogma/attributes/${attribute_id}/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_dogma_attributes_attribute_id?attribute_id=${attribute_id}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -64,9 +64,9 @@ export default {
    * }
    */
   get_dogma_dynamic_items_type_id_item_id (item_id, type_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/dogma/dynamic/items/${type_id}/${item_id}/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_dogma_dynamic_items_type_id_item_id?item_id=${item_id}&type_id=${type_id}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -80,9 +80,9 @@ export default {
    * }
    */
   get_dogma_effects (done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/dogma/effects/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_dogma_effects`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -102,8 +102,8 @@ export default {
    * }
    */
   get_dogma_effects_effect_id (effect_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/dogma/effects/${effect_id}/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_dogma_effects_effect_id?effect_id=${effect_id}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   }
 }

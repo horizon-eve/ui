@@ -28,14 +28,14 @@ export default {
    * }
    */
   get_characters_character_id_orders (character_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/characters/${character_id}/orders/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_orders?character_id=${character_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -63,14 +63,14 @@ export default {
    * }
    */
   get_characters_character_id_orders_history (character_id, page, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/characters/${character_id}/orders/history/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_orders_history?character_id=${character_id}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -98,14 +98,14 @@ export default {
    * }
    */
   get_corporations_corporation_id_orders (corporation_id, page, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/corporations/${corporation_id}/orders/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_corporations_corporation_id_orders?corporation_id=${corporation_id}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -134,14 +134,14 @@ export default {
    * }
    */
   get_corporations_corporation_id_orders_history (corporation_id, page, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/corporations/${corporation_id}/orders/history/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_corporations_corporation_id_orders_history?corporation_id=${corporation_id}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -155,9 +155,9 @@ export default {
    * }
    */
   get_markets_groups (done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/markets/groups/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_markets_groups`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -176,9 +176,9 @@ export default {
    * }
    */
   get_markets_groups_market_group_id (market_group_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/markets/groups/${market_group_id}/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_markets_groups_market_group_id?market_group_id=${market_group_id}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -194,9 +194,9 @@ export default {
    * }
    */
   get_markets_prices (done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/markets/prices/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_markets_prices`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -220,14 +220,14 @@ export default {
    * }
    */
   get_markets_structures_structure_id (page, structure_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/markets/structures/${structure_id}/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_markets_structures_structure_id?page=${page}&structure_id=${structure_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -246,9 +246,9 @@ export default {
    * }
    */
   get_markets_region_id_history (region_id, type_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/markets/${region_id}/history/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_markets_region_id_history?region_id=${region_id}&type_id=${type_id}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -273,9 +273,9 @@ export default {
    * }
    */
   get_markets_region_id_orders (order_type, page, region_id, type_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/markets/${region_id}/orders/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_markets_region_id_orders?order_type=${order_type}&page=${page}&region_id=${region_id}&type_id=${type_id}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -289,8 +289,8 @@ export default {
    * }
    */
   get_markets_region_id_types (page, region_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/markets/${region_id}/types/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_markets_region_id_types?page=${page}&region_id=${region_id}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   }
 }

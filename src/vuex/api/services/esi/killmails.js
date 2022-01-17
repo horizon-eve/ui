@@ -20,14 +20,14 @@ export default {
    * }
    */
   get_characters_character_id_killmails_recent (character_id, page, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/characters/${character_id}/killmails/recent/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_killmails_recent?character_id=${character_id}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -46,14 +46,14 @@ export default {
    * }
    */
   get_corporations_corporation_id_killmails_recent (corporation_id, page, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/corporations/${corporation_id}/killmails/recent/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_corporations_corporation_id_killmails_recent?corporation_id=${corporation_id}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -99,8 +99,8 @@ export default {
    * }
    */
   get_killmails_killmail_id_killmail_hash (killmail_hash, killmail_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/killmails/${killmail_id}/${killmail_hash}/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_killmails_killmail_id_killmail_hash?killmail_hash=${killmail_hash}&killmail_id=${killmail_id}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   }
 }

@@ -25,14 +25,14 @@ export default {
    * }
    */
   get_characters_character_id_fittings (character_id, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/characters/${character_id}/fittings/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_fittings?character_id=${character_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -40,14 +40,14 @@ export default {
    *
    */
   post_characters_character_id_fittings (character_id, done) {
-    return axios.post(`${config.API_BASE_URL}/esi/latest/characters/${character_id}/fittings/`, {
+    return axios.post(`${config.ESI_BASE_URL}/post_characters_character_id_fittings?character_id=${character_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -55,13 +55,13 @@ export default {
    *
    */
   delete_characters_character_id_fittings_fitting_id (character_id, fitting_id, done) {
-    return axios.delete(`${config.API_BASE_URL}/esi/latest/characters/${character_id}/fittings/${fitting_id}/`, {
+    return axios.delete(`${config.ESI_BASE_URL}/delete_characters_character_id_fittings_fitting_id?character_id=${character_id}&fitting_id=${fitting_id}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   }
 }

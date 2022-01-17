@@ -22,9 +22,9 @@ export default {
    * }
    */
   get_sovereignty_campaigns (done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/sovereignty/campaigns/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_sovereignty_campaigns`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -39,9 +39,9 @@ export default {
    * }
    */
   get_sovereignty_map (done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/sovereignty/map/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_sovereignty_map`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -61,8 +61,8 @@ export default {
    * }
    */
   get_sovereignty_structures (done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/sovereignty/structures/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_sovereignty_structures`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   }
 }

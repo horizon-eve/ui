@@ -24,14 +24,14 @@ export default {
    * }
    */
   get_characters_character_id_search (categories, character_id, search, strict, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/characters/${character_id}/search/`, {
+    return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_search?categories=${categories}&character_id=${character_id}&search=${search}&strict=${strict}`, {
       headers: {
         'content-type': 'application/json',
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   },
 
   /**
@@ -54,8 +54,8 @@ export default {
    * }
    */
   get_search (categories, search, strict, done) {
-    return axios.get(`${config.API_BASE_URL}/esi/latest/search/`)
+    return axios.get(`${config.ESI_BASE_URL}/get_search?categories=${categories}&search=${search}&strict=${strict}`)
       .then((response) => done(response.data))
-      .catch((error) => console.error(`Could not call get_character_public_information: ` + JSON.stringify(error)))
+      .catch((error) => console.error(error.message, error.stack))
   }
 }
