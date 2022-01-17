@@ -1,7 +1,7 @@
 import Module from '../base-module'
 import {services} from '../api'
 
-let module = new Module('character', 'id', ['corporation', 'alliance'])
+let module = new Module('character', 'character_id', ['corporation', 'alliance'])
 
 const state = {
   ...module.state

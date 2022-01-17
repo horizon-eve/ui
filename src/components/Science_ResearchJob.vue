@@ -1,6 +1,6 @@
 <template>
 <div class="col-sm-4 col-md-1" style="width: 11%">
-  <h4 class="text-center">{{ this.color }}</h4>
+  <h4 class="text-center">color</h4>
 
   <div class="user-header text-center">
     <img v-bind:src="`https://images.evetech.net/Character/${user.character_id}_128.jpg`" class="img-circle" alt="User Image">
