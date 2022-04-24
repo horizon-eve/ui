@@ -1,0 +1,77 @@
+import axios from 'axios'
+import config from 'config'
+{{#if api.auth}}
+import store from 'src/vuex/store'
+{{/if}}
+
+export default {
+{{#contains "C" api.grants}}
+  create (data, done) {
+    return axios.post(`${config.API_BASE_URL}/{{prefix}}{{api.path}}`, data, {
+  {{#if api.auth}}
+      headers: {
+        'content-type': 'application/json',
+        'x-hr-authtoken': store.state.auth.auth_token
+      }
+  {{/if}}
+    })
+      .then((response) => done(response.data.id))
+      .catch((error) => console.error(`Could not call {{api.path}}: ` + JSON.stringify(error)))
+  },
+{{/contains}}
+{{#contains "R" api.grants}}
+
+  read (params = {}, done) {
+    return axios.get(`${config.API_BASE_URL}/{{prefix}}{{api.path}}`, {
+  {{#if api.auth}}
+      headers: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'x-hr-authtoken': store.state.auth.auth_token
+      },
+  {{/if}}
+      params: params })
+      .then((response) => done(response.data))
+      .catch((error) => console.error(`Could not call {{api.path}}: ` + JSON.stringify(error)))
+  },
+  {{#if api.fields.id}}
+
+  get (id, done) {
+    return axios.get(`${config.API_BASE_URL}/{{prefix}}{{api.path}}/${id}`, {
+  {{#if api.auth}}
+      headers: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'x-hr-authtoken': store.state.auth.auth_token
+      }
+  {{/if}}
+    })
+      .then((response) => done(response.data))
+      .catch((error) => console.error(`Could not call {{api.path}}: ` + JSON.stringify(error)))
+  },
+  {{/if}}
+{{/contains}}
+{{#contains "U" api.grants}}
+
+  update (data, done) {
+    return axios.patch(`${config.API_BASE_URL}/{{prefix}}{{api.path}}/${data.id}`, data, {
+  {{#if api.auth}}
+      headers: {
+        'content-type': 'application/json',
+        'x-hr-authtoken': store.state.auth.auth_token
+      }
+  {{/if}}
+    })
+      .then((response) => done(response))
+      .catch((error) => console.error(`Could not call {{api.path}}: ` + JSON.stringify(error)))
+  },
+  {{#contains "C" api.grants}}
+
+  upsert (data, done) {
+    if (data.id) {
+      this.update(data, done)
+    } else {
+      this.create(data, done)
+    }
+  }
+  {{/contains}}
+{{/contains}}
+}

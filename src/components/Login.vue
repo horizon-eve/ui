@@ -28,7 +28,7 @@
           callback: null,
           verify: null
         },
-        authHref: config.AUTH_BASE_URL + '/login/start',
+        authHref: config.AUTH_BASE_URL + '/login/user',
         callback: window.location.origin + '/login/verify'
       }
     },

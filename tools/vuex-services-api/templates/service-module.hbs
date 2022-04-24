@@ -1,0 +1,10 @@
+/* eslint-disable camelcase */
+{{#each this}}
+import {{module}} from '{{path}}'
+{{/each}}
+
+export default {
+{{#each this}}
+  {{module}}{{#if @last}}{{else}},{{/if}}
+{{/each}}
+}

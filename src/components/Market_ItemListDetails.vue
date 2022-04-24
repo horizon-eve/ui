@@ -19,7 +19,6 @@
         placeholder="Enter Item List Name"
       >
       </va-input-group>
-
       <va-input-group
         title="Items"
         vaId="itemListItems"
@@ -48,8 +47,12 @@
                 <button type="reset" class="btn btn-default text-red" data-toggle="tooltip" title="Remove items" v-on:click="itemList.items = []"><i class="fa  fa-remove"></i></button>
               </div>
             </div>
+
             <!-- /.box-header -->
             <div class="box-body">
+              <button type="button" class="btn btn-default" v-on:click="saveItemList">Save</button>
+              <button type="button" class="btn btn-default" v-on:click="$router.go(-1)">Cancel</button>
+              <p> </p>
               <ul class="products-list product-list-in-box">
                 <li class="item" v-for="item in itemList.items">
                   <div class="product-img">
@@ -76,6 +79,8 @@
               </ul>
             </div>
           </div>
+          <button type="button" class="btn btn-default" v-on:click="saveItemList">Save</button>
+          <button type="button" class="btn btn-default" v-on:click="$router.go(-1)">Cancel</button>
         </div>
       </va-input-group>
       <va-modal>
@@ -83,10 +88,6 @@
             <textarea class="form-control" rows="25" v-model="eftPaste" placeholder="Paste EFT text here"></textarea>
         </div>
       </va-modal>
-    </div>
-    <div slot="footer">
-      <button type="button" class="btn btn-default" v-on:click="saveItemList">Save</button>
-      <button type="button" class="btn btn-default" v-on:click="$router.go(-1)">Cancel</button>
     </div>
   </va-box>
 </template>

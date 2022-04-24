@@ -1,10 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 // Horizon components:
-import Login from 'components/Login.vue'
-import LoginVerify from 'components/LoginVerify.vue'
-import ItemLists from 'components/Market_ItemLists.vue'
+import Login from 'components/Login'
+import LoginVerify from 'components/LoginVerify'
+import ItemLists from 'components/Market_ItemLists'
 import ItemListDetails from 'components/Market_ItemListDetails'
+import MarketWatchLists from 'components/Market_WatchLists'
+import WatchListDetails from 'components/Market_WatchListDetails'
 import ResearchJobs from 'components/Science_ResearchJobs'
 // Samples:
 import DashboardV1 from 'examples/Dashboard.v1.vue'
@@ -56,6 +58,18 @@ const router = new Router({
       name: 'Market_ItemListDetail',
       component: ItemListDetails,
       meta: { pageName: 'Item List Details' }
+    },
+    {
+      path: '/market-watch-lists',
+      name: 'Market_WatchLists',
+      component: MarketWatchLists,
+      meta: { pageName: 'Market Watch Lists' }
+    },
+    {
+      path: '/market-watch-lists/:listId',
+      name: 'Market_WatchListDetail',
+      component: WatchListDetails,
+      meta: { pageName: 'Watch List Details' }
     },
     {
       path: '/research-jobs',

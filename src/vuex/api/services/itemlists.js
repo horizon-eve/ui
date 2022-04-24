@@ -10,8 +10,8 @@ export default {
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
-        .then((response) => done(response.data.id))
-        .catch((error) => console.error(`Could not call itemlists: ` + JSON.stringify(error)))
+      .then((response) => done(response.data.id))
+      .catch((error) => console.error(`Could not call itemlists: ` + JSON.stringify(error)))
   },
 
   read (params = {}, done) {
@@ -21,8 +21,8 @@ export default {
         'x-hr-authtoken': store.state.auth.auth_token
       },
       params: params })
-        .then((response) => done(response.data))
-        .catch((error) => console.error(`Could not call itemlists: ` + JSON.stringify(error)))
+      .then((response) => done(response.data))
+      .catch((error) => console.error(`Could not call itemlists: ` + JSON.stringify(error)))
   },
 
   get (id, done) {
@@ -32,8 +32,8 @@ export default {
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
-        .then((response) => done(response.data))
-        .catch((error) => console.error(`Could not call itemlists: ` + JSON.stringify(error)))
+      .then((response) => done(response.data))
+      .catch((error) => console.error(`Could not call itemlists: ` + JSON.stringify(error)))
   },
 
   update (data, done) {
@@ -43,8 +43,8 @@ export default {
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
-        .then((response) => done(response))
-        .catch((error) => console.error(`Could not call itemlists: ` + JSON.stringify(error)))
+      .then((response) => done(response))
+      .catch((error) => console.error(`Could not call itemlists: ` + JSON.stringify(error)))
   },
 
   upsert (data, done) {

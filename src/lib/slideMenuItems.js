@@ -20,6 +20,14 @@ module.exports = [
       {
         type: 'item',
         icon: 'fa fa-circle-o',
+        name: 'Watch Lists',
+        router: {
+          name: 'Market_WatchLists'
+        }
+      },
+      {
+        type: 'item',
+        icon: 'fa fa-circle-o',
         name: '샘플화면',
         router: {
           name: 'Sample'

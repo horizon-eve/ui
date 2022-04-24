@@ -1,7 +1,6 @@
 <template>
   <div v-if="isHorizontal"
-    class="form-group"
-  >
+    class="form-group">
     <label :for="vaId" class="col-sm-2 control-label">{{ title }}</label>
     <div class="col-sm-10">
       <select class="form-control" :disabled="isDisabled" :multiple="isMultiple">
