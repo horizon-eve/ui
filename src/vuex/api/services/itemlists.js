@@ -20,6 +20,9 @@ export default {
         'content-type': 'application/x-www-form-urlencoded',
         'x-hr-authtoken': store.state.auth.auth_token
       },
+      paramsSerializer: function (params) {
+        return Object.keys(params).map(k => `${k}=${params[k]}`).join('&')
+      },
       params: params })
       .then((response) => done(response.data))
       .catch((error) => console.error(`Could not call itemlists: ` + JSON.stringify(error)))

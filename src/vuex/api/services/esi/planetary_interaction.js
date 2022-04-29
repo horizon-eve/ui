@@ -33,7 +33,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_planets?character_id=${character_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -81,7 +82,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_planets_planet_id?character_id=${character_id}&planet_id=${planet_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -113,7 +115,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_corporations_corporation_id_customs_offices?corporation_id=${corporation_id}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))

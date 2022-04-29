@@ -37,7 +37,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_contracts?character_id=${character_id}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -61,7 +62,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_contracts_contract_id_bids?character_id=${character_id}&contract_id=${contract_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -86,7 +88,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_contracts_contract_id_items?character_id=${character_id}&contract_id=${contract_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -191,7 +194,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_corporations_corporation_id_contracts?corporation_id=${corporation_id}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -215,7 +219,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_corporations_corporation_id_contracts_contract_id_bids?contract_id=${contract_id}&corporation_id=${corporation_id}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -240,7 +245,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_corporations_corporation_id_contracts_contract_id_items?contract_id=${contract_id}&corporation_id=${corporation_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))

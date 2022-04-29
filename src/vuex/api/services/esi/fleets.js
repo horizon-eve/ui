@@ -19,7 +19,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_fleet?character_id=${character_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -41,7 +42,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_fleets_fleet_id?fleet_id=${fleet_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -50,13 +52,14 @@ export default {
 
   /**
    * Update settings about a fleet
-   *
+   * .
    */
   put_fleets_fleet_id (fleet_id, done) {
     return axios.put(`${config.ESI_BASE_URL}/put_fleets_fleet_id?fleet_id=${fleet_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -86,7 +89,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_fleets_fleet_id_members?fleet_id=${fleet_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -95,13 +99,14 @@ export default {
 
   /**
    * Invite a character into the fleet. If a character has a CSPA charge set it is not possible to invite them to the fleet using ESI
-   *
+   * .
    */
   post_fleets_fleet_id_members (fleet_id, done) {
     return axios.post(`${config.ESI_BASE_URL}/post_fleets_fleet_id_members?fleet_id=${fleet_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -110,13 +115,14 @@ export default {
 
   /**
    * Kick a fleet member
-   *
+   * .
    */
   delete_fleets_fleet_id_members_member_id (fleet_id, member_id, done) {
     return axios.delete(`${config.ESI_BASE_URL}/delete_fleets_fleet_id_members_member_id?fleet_id=${fleet_id}&member_id=${member_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -125,13 +131,14 @@ export default {
 
   /**
    * Move a fleet member around
-   *
+   * .
    */
   put_fleets_fleet_id_members_member_id (fleet_id, member_id, done) {
     return axios.put(`${config.ESI_BASE_URL}/put_fleets_fleet_id_members_member_id?fleet_id=${fleet_id}&member_id=${member_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -140,13 +147,14 @@ export default {
 
   /**
    * Delete a fleet squad, only empty squads can be deleted
-   *
+   * .
    */
   delete_fleets_fleet_id_squads_squad_id (fleet_id, squad_id, done) {
     return axios.delete(`${config.ESI_BASE_URL}/delete_fleets_fleet_id_squads_squad_id?fleet_id=${fleet_id}&squad_id=${squad_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -155,13 +163,14 @@ export default {
 
   /**
    * Rename a fleet squad
-   *
+   * .
    */
   put_fleets_fleet_id_squads_squad_id (fleet_id, squad_id, done) {
     return axios.put(`${config.ESI_BASE_URL}/put_fleets_fleet_id_squads_squad_id?fleet_id=${fleet_id}&squad_id=${squad_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -189,7 +198,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_fleets_fleet_id_wings?fleet_id=${fleet_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -198,13 +208,14 @@ export default {
 
   /**
    * Create a new wing in a fleet
-   *
+   * .
    */
   post_fleets_fleet_id_wings (fleet_id, done) {
     return axios.post(`${config.ESI_BASE_URL}/post_fleets_fleet_id_wings?fleet_id=${fleet_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -213,13 +224,14 @@ export default {
 
   /**
    * Delete a fleet wing, only empty wings can be deleted. The wing may contain squads, but the squads must be empty
-   *
+   * .
    */
   delete_fleets_fleet_id_wings_wing_id (fleet_id, wing_id, done) {
     return axios.delete(`${config.ESI_BASE_URL}/delete_fleets_fleet_id_wings_wing_id?fleet_id=${fleet_id}&wing_id=${wing_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -228,13 +240,14 @@ export default {
 
   /**
    * Rename a fleet wing
-   *
+   * .
    */
   put_fleets_fleet_id_wings_wing_id (fleet_id, wing_id, done) {
     return axios.put(`${config.ESI_BASE_URL}/put_fleets_fleet_id_wings_wing_id?fleet_id=${fleet_id}&wing_id=${wing_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -243,13 +256,14 @@ export default {
 
   /**
    * Create a new squad in a fleet
-   *
+   * .
    */
   post_fleets_fleet_id_wings_wing_id_squads (fleet_id, wing_id, done) {
     return axios.post(`${config.ESI_BASE_URL}/post_fleets_fleet_id_wings_wing_id_squads?fleet_id=${fleet_id}&wing_id=${wing_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))

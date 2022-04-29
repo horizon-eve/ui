@@ -20,7 +20,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_alliances_alliance_id_contacts?alliance_id=${alliance_id}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -42,7 +43,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_alliances_alliance_id_contacts_labels?alliance_id=${alliance_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -51,13 +53,14 @@ export default {
 
   /**
    * Bulk delete contacts
-   *
+   * .
    */
   delete_characters_character_id_contacts (character_id, contact_ids, done) {
     return axios.delete(`${config.ESI_BASE_URL}/delete_characters_character_id_contacts?character_id=${character_id}&contact_ids=${contact_ids}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -82,7 +85,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_contacts?character_id=${character_id}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -91,13 +95,14 @@ export default {
 
   /**
    * Bulk add contacts with same settings
-   *
+   * .
    */
   post_characters_character_id_contacts (character_id, label_ids, standing, watched, done) {
     return axios.post(`${config.ESI_BASE_URL}/post_characters_character_id_contacts?character_id=${character_id}&label_ids=${label_ids}&standing=${standing}&watched=${watched}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -106,13 +111,14 @@ export default {
 
   /**
    * Bulk edit contacts with same settings
-   *
+   * .
    */
   put_characters_character_id_contacts (character_id, label_ids, standing, watched, done) {
     return axios.put(`${config.ESI_BASE_URL}/put_characters_character_id_contacts?character_id=${character_id}&label_ids=${label_ids}&standing=${standing}&watched=${watched}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -134,7 +140,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_contacts_labels?character_id=${character_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -158,7 +165,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_corporations_corporation_id_contacts?corporation_id=${corporation_id}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -180,7 +188,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_corporations_corporation_id_contacts_labels?corporation_id=${corporation_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))

@@ -31,7 +31,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_mail?character_id=${character_id}&labels=${labels}&last_mail_id=${last_mail_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -40,13 +41,14 @@ export default {
 
   /**
    * Create and send a new mail
-   *
+   * .
    */
   post_characters_character_id_mail (character_id, done) {
     return axios.post(`${config.ESI_BASE_URL}/post_characters_character_id_mail?character_id=${character_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -79,7 +81,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_mail_labels?character_id=${character_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -88,13 +91,14 @@ export default {
 
   /**
    * Create a mail label
-   *
+   * .
    */
   post_characters_character_id_mail_labels (character_id, done) {
     return axios.post(`${config.ESI_BASE_URL}/post_characters_character_id_mail_labels?character_id=${character_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -103,13 +107,14 @@ export default {
 
   /**
    * Delete a mail label
-   *
+   * .
    */
   delete_characters_character_id_mail_labels_label_id (character_id, label_id, done) {
     return axios.delete(`${config.ESI_BASE_URL}/delete_characters_character_id_mail_labels_label_id?character_id=${character_id}&label_id=${label_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -131,7 +136,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_mail_lists?character_id=${character_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -140,13 +146,14 @@ export default {
 
   /**
    * Delete a mail
-   *
+   * .
    */
   delete_characters_character_id_mail_mail_id (character_id, mail_id, done) {
     return axios.delete(`${config.ESI_BASE_URL}/delete_characters_character_id_mail_mail_id?character_id=${character_id}&mail_id=${mail_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -173,7 +180,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_mail_mail_id?character_id=${character_id}&mail_id=${mail_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -182,13 +190,14 @@ export default {
 
   /**
    * Update metadata about a mail
-   *
+   * .
    */
   put_characters_character_id_mail_mail_id (character_id, mail_id, done) {
     return axios.put(`${config.ESI_BASE_URL}/put_characters_character_id_mail_mail_id?character_id=${character_id}&mail_id=${mail_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))

@@ -17,7 +17,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_location?character_id=${character_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -39,7 +40,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_online?character_id=${character_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -60,7 +62,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_ship?character_id=${character_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))

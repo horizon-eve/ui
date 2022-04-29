@@ -61,7 +61,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_agents_research?character_id=${character_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -89,7 +90,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_blueprints?character_id=${character_id}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -122,13 +124,14 @@ export default {
 
   /**
    * Takes a source character ID in the url and a set of target character ID's in the body, returns a CSPA charge cost
-   *
+   * .
    */
   post_characters_character_id_cspa (character_id, done) {
     return axios.post(`${config.ESI_BASE_URL}/post_characters_character_id_cspa?character_id=${character_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -149,7 +152,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_fatigue?character_id=${character_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -197,7 +201,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_medals?character_id=${character_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -224,7 +229,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_notifications?character_id=${character_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -249,7 +255,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_notifications_contacts?character_id=${character_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -288,7 +295,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_roles?character_id=${character_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -321,7 +329,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_standings?character_id=${character_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -343,7 +352,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_titles?character_id=${character_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))

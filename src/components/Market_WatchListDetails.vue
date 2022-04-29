@@ -26,6 +26,13 @@
         v-model="watchList.description"
         placeholder="Enter Description">
       </va-input-group>
+      <va-input-group
+        title="Price Filter"
+        vaId="watchListPriceFilter"
+        type="text"
+        v-model="watchList.price_filter"
+        placeholder="Enter Price Filter">
+      </va-input-group>
 
       <div class="row">
         <div class="col-md-3">
@@ -77,7 +84,7 @@
     </div>
     <div slot="footer">
       <h4 v-if="this.allItems">Summary of all items in this watch list:</h4>
-      <div v-for="item in allItems" class="col-lg-3 col-xs-6">
+      <div v-for="item in allItems" class="col-lg-4 col-xs-6">
         <div class="info-box">
           <span class="info-box-icon" >
             <img :src="`https://images.evetech.net/types/${item.id}/icon?size=64`" v-bind:alt="item.name"/>
@@ -106,7 +113,7 @@
         name: '',
         description: '',
         items: [],
-        price_filter: 0.3
+        price_filter: 3.0
       },
       itemLists: [],
       saved: false

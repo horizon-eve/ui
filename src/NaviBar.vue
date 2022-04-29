@@ -3,9 +3,9 @@
     <!-- Logo -->
     <a href="index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span v-if="alliance.alliance_id" class="logo-mini"><img v-bind:src="`https://images.evetech.net/alliances/${alliance.alliance_id}/logo`" class="img-md" v-bind:alt="alliance.ticker"></span>
+      <span v-if="alliance.alliance_id" class="logo-mini"><img v-bind:src="'https://images.evetech.net/alliances/' + alliance.alliance_id + '/logo'" class="img-md" v-bind:alt="alliance.ticker"></span>
       <!-- logo for regular state and mobile devices -->
-      <span v-if="alliance.alliance_id" class="logo-lg"><img v-bind:src="`https://images.evetech.net/alliances/${alliance.alliance_id}/logo`" v-bind:alt="alliance.ticker"> {{alliance.name}}</span>
+      <span v-if="alliance.alliance_id" class="logo-lg"><img v-bind:src="'https://images.evetech.net/alliances/' + alliance.alliance_id + '/logo'" v-bind:alt="alliance.ticker"> {{alliance.name}}</span>
     </a>
 
     <!-- Header Navbar: style can be found in header.less -->
@@ -213,7 +213,7 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a v-if="character.character_id" href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img v-bind:src="`https://images.evetech.net/Character/${user.character_id}_128.jpg`" class="user-image" alt="User Image">
+              <img v-bind:src="'https://images.evetech.net/Character/'+ user.character_id + '_128.jpg'" class="user-image" alt="User Image">
               <span class="hidden-xs">{{ character.name }}</span>
             </a>
             <ul class="dropdown-menu">
@@ -273,12 +273,11 @@ export default {
       'unreadMessagesCount',
       'unreadNotificationsCount',
       'remainTasksCount',
-      'user'
-    ]),
-    ...mapState([
+      'user',
       'alliance',
       'character'
-    ])
+    ]),
+    ...mapState([])
   },
   methods: {
     df (d) {

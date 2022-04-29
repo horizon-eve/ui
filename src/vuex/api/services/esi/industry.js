@@ -33,7 +33,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_industry_jobs?character_id=${character_id}&include_completed=${include_completed}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -63,7 +64,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_mining?character_id=${character_id}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -88,7 +90,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_corporation_corporation_id_mining_extractions?corporation_id=${corporation_id}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -111,7 +114,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_corporation_corporation_id_mining_observers?corporation_id=${corporation_id}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -136,7 +140,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_corporation_corporation_id_mining_observers_observer_id?corporation_id=${corporation_id}&observer_id=${observer_id}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -172,7 +177,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_corporations_corporation_id_industry_jobs?corporation_id=${corporation_id}&include_completed=${include_completed}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))

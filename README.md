@@ -153,7 +153,7 @@ export default {
 ## how to start mock server
 
 ```javascript
-node ./mock-server/index.js
+node ./mock-server/api-vuex-services.js
 ```
 
 ## how to use Vuex

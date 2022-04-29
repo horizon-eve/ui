@@ -12,6 +12,14 @@ module.exports = [
       {
         type: 'item',
         icon: 'fa fa-circle-o',
+        name: 'Market Availability',
+        router: {
+          name: 'Market_Availability'
+        }
+      },
+      {
+        type: 'item',
+        icon: 'fa fa-circle-o',
         name: 'Item Lists',
         router: {
           name: 'Market_ItemLists'
@@ -23,14 +31,6 @@ module.exports = [
         name: 'Watch Lists',
         router: {
           name: 'Market_WatchLists'
-        }
-      },
-      {
-        type: 'item',
-        icon: 'fa fa-circle-o',
-        name: '샘플화면',
-        router: {
-          name: 'Sample'
         }
       },
       {

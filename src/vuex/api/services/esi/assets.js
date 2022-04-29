@@ -25,7 +25,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_assets?character_id=${character_id}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -51,7 +52,8 @@ export default {
     return axios.post(`${config.ESI_BASE_URL}/post_characters_character_id_assets_locations?character_id=${character_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -73,7 +75,8 @@ export default {
     return axios.post(`${config.ESI_BASE_URL}/post_characters_character_id_assets_names?character_id=${character_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -101,7 +104,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_corporations_corporation_id_assets?corporation_id=${corporation_id}&page=${page}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -127,7 +131,8 @@ export default {
     return axios.post(`${config.ESI_BASE_URL}/post_corporations_corporation_id_assets_locations?corporation_id=${corporation_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -149,7 +154,8 @@ export default {
     return axios.post(`${config.ESI_BASE_URL}/post_corporations_corporation_id_assets_names?corporation_id=${corporation_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))

@@ -10,6 +10,7 @@
         <form id="login" method="POST" v-bind:action="authHref" v-on:submit="submit()">
           <input type="hidden" name="verify" v-model="login.verify">
           <input type="hidden" name="callback" v-model="callback">
+          <input type="hidden" name="scope" :value="scope">
           <input type="submit" value=""
                  style="background-image: url(//web.ccpgamescdn.com/eveonlineassets/developers/eve-sso-login-white-large.png); border: solid 0px #000000; width: 270px; height: 45px;" />
         </form>
@@ -28,6 +29,7 @@
           callback: null,
           verify: null
         },
+        scope: config.scopes,
         authHref: config.AUTH_BASE_URL + '/login/user',
         callback: window.location.origin + '/login/verify'
       }

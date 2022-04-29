@@ -28,7 +28,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_fittings?character_id=${character_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -37,13 +38,14 @@ export default {
 
   /**
    * Save a new fitting for a character
-   *
+   * .
    */
   post_characters_character_id_fittings (character_id, done) {
     return axios.post(`${config.ESI_BASE_URL}/post_characters_character_id_fittings?character_id=${character_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -52,13 +54,14 @@ export default {
 
   /**
    * Delete a fitting from a character
-   *
+   * .
    */
   delete_characters_character_id_fittings_fitting_id (character_id, fitting_id, done) {
     return axios.delete(`${config.ESI_BASE_URL}/delete_characters_character_id_fittings_fitting_id?character_id=${character_id}&fitting_id=${fitting_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))

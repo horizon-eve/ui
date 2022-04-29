@@ -22,7 +22,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_calendar?character_id=${character_id}&from_event=${from_event}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -50,7 +51,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_calendar_event_id?character_id=${character_id}&event_id=${event_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -59,13 +61,14 @@ export default {
 
   /**
    * Set your response status to an event
-   *
+   * .
    */
   put_characters_character_id_calendar_event_id (character_id, event_id, done) {
     return axios.put(`${config.ESI_BASE_URL}/put_characters_character_id_calendar_event_id?character_id=${character_id}&event_id=${event_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
@@ -91,7 +94,8 @@ export default {
     return axios.get(`${config.ESI_BASE_URL}/get_characters_character_id_calendar_event_id_attendees?character_id=${character_id}&event_id=${event_id}`, {
       headers: {
         'content-type': 'application/json',
-        'x-hr-authtoken': store.state.auth.auth_token
+        'x-hr-authtoken': store.state.auth.auth_token,
+        'x-hr-character': store.state.user.character_id
       }
     })
       .then((response) => done(response.data))
