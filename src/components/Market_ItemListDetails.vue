@@ -225,7 +225,7 @@
               })
             })
             const query = Object.keys(items).map(n => `"${n}"`).join(',')
-            services.item_types.read({type_name: `in=${query}`}, data => {
+            services.item_types.read({type_name: `in=${query}`, limit: 100}, data => {
               let refined = []
               data.forEach(i => {
                 let item = items[i.type_name]

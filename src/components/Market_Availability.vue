@@ -102,7 +102,7 @@ export default {
       // Prepare watchlist data
       const itemListIds = this.selectedWatchList.items.map(wi => wi.itemlist_id)
       // pull item lists
-      services.itemlists.read({'id=in': itemListIds.join(',')}, data => {
+      services.itemlists.read({id: `in=${itemListIds.join(',')}`}, data => {
         try {
           const itemLists = Array.isArray(data) ? data : [data]
           this.selectedWatchList.items.forEach(wi => {
