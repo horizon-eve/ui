@@ -5,7 +5,8 @@ switch (process.env.NODE_ENV) {
   case 'development':
     API_BASE_URL = 'https://api.racopub.com'
     AUTH_BASE_URL = 'https://auth.racopub.com'
-    ESI_BASE_URL = 'http://localhost:3000'
+    ESI_BASE_URL = 'https://esi.racopub.com'
+    // ESI_BASE_URL = 'http://localhost:3000'
     break
   case 'testing':
     API_BASE_URL = 'https://api.racopub.com'

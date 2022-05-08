@@ -56,7 +56,7 @@
           <div class="info-box-content">
             <span class="info-box-text">{{item.name}}</span>
             <span class="badge bg-gray">Requested: {{item.qty.toLocaleString()}}</span>
-            <span :class="`badge ${item.avail > item.qty ? 'bg-green' : item.avail / item.qty > 0.3 ? 'bg-yellow' : 'bg-red'}`"> Available: {{item.avail.toLocaleString()}}</span>
+            <span :class="`badge ${item.avail >= item.qty ? 'bg-green' : item.avail / item.qty > 0.3 ? 'bg-yellow' : 'bg-red'}`"> Available: {{item.avail.toLocaleString()}}</span>
           </div>
         </div>
       </div>
@@ -141,9 +141,10 @@ export default {
           ordersPage.forEach(order => {
             // filter buy orders
             if (!order.is_buy_order && order.volume_remain > 0) {
-              // filter overpriced
+              // filter overpriced (do not yet)
               const item = watchData[order.type_id]
-              if (item && item.base_price * module.selectedWatchList.price_filter >= order.price) {
+//               if (item && item.base_price * module.selectedWatchList.price_filter >= order.price) {
+              if (item) {
                 item.avail += order.volume_remain
               }
             }
@@ -152,7 +153,15 @@ export default {
           if (ordersPage.length === 1000) {
             chaining(page + 1, module)
           } else {
-            module.report = watchData
+            // Setup urgency priority
+            const report = Object.values(watchData)
+            report.forEach(item => {
+              item.priority = item.avail >= item.qty ? 3 : item.avail / item.qty >= 0.3 ? 2 : 1
+            })
+            module.report = report.sort((a, b) => {
+              const pr = a.priority - b.priority
+              return pr !== 0 ? pr : a.group.localeCompare(b.group)
+            })
             module.isAnalysisInProgress = false
             console.log('chaining done')
           }

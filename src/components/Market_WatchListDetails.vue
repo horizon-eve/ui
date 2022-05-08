@@ -56,7 +56,7 @@
             <div class="box-body">
               <ul class="products-list product-list-in-box">
                 <li class="item" v-for="item in watchList.items">
-                  <div class="col-md-3">
+                  <div class="col-md-4">
                     <span class="product-list-in-box">{{item.itemlist_id}}</span>
                     <span class="product-title">{{item.name}}</span>
 
