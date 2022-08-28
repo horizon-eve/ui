@@ -46,7 +46,7 @@ export default {
     }
   },
   mounted () {
-    services.market_watch_lists.read({}, data => {
+    services.market_watch_lists.read({limit: 200}, data => {
       this.watchLists = data
     })
   }

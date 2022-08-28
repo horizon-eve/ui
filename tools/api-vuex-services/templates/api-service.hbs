@@ -15,7 +15,13 @@ export default {
       }
   {{/if}}
     })
-      .then((response) => done(response.data.id))
+      .then((response) => {
+        try {
+          done(response.data.id)
+        } catch (err) {
+          console.error(err)
+        }
+      })
       .catch((error) => console.error(`Could not call {{api.path}}: ` + JSON.stringify(error)))
   },
 {{/contains}}
@@ -30,7 +36,13 @@ export default {
       },
   {{/if}}
       params: params })
-      .then((response) => done(response.data))
+      .then((response) => {
+        try {
+          done(response.data)
+        } catch (err) {
+          console.error(err)
+        }
+      })
       .catch((error) => console.error(`Could not call {{api.path}}: ` + JSON.stringify(error)))
   },
   {{#if api.fields.id}}
@@ -44,7 +56,13 @@ export default {
       }
   {{/if}}
     })
-      .then((response) => done(response.data))
+      .then((response) => {
+        try {
+          done(response.data)
+        } catch (err) {
+          console.error(err)
+        }
+      })
       .catch((error) => console.error(`Could not call {{api.path}}: ` + JSON.stringify(error)))
   },
   {{/if}}
@@ -60,7 +78,13 @@ export default {
       }
   {{/if}}
     })
-      .then((response) => done(response))
+      .then((response) => {
+        try {
+          done(response.data)
+        } catch (err) {
+          console.error(err)
+        }
+      })
       .catch((error) => console.error(`Could not call {{api.path}}: ` + JSON.stringify(error)))
   },
   {{#contains "C" api.grants}}

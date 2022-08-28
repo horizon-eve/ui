@@ -102,7 +102,7 @@ export default {
       // Prepare watchlist data
       const itemListIds = this.selectedWatchList.items.map(wi => wi.itemlist_id)
       // pull item lists
-      services.itemlists.read({id: `in=${itemListIds.join(',')}`}, data => {
+      services.itemlists.read({id: `in=${itemListIds.join(',')}`, limit: 100}, data => {
         try {
           const itemLists = Array.isArray(data) ? data : [data]
           this.selectedWatchList.items.forEach(wi => {
@@ -170,7 +170,7 @@ export default {
       chaining(1, this)
     },
     fetchWatchLists: function () {
-      services.market_watch_lists.read({}, (data) => {
+      services.market_watch_lists.read({limit: 100}, (data) => {
         this.watchLists = data
       })
     },

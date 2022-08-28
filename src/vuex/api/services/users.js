@@ -10,7 +10,13 @@ export default {
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
-      .then((response) => done(response.data.id))
+      .then((response) => {
+        try {
+          done(response.data.id)
+        } catch (err) {
+          console.error(err)
+        }
+      })
       .catch((error) => console.error(`Could not call users: ` + JSON.stringify(error)))
   },
 
@@ -21,7 +27,13 @@ export default {
         'x-hr-authtoken': store.state.auth.auth_token
       },
       params: params })
-      .then((response) => done(response.data))
+      .then((response) => {
+        try {
+          done(response.data)
+        } catch (err) {
+          console.error(err)
+        }
+      })
       .catch((error) => console.error(`Could not call users: ` + JSON.stringify(error)))
   },
 
@@ -32,7 +44,13 @@ export default {
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
-      .then((response) => done(response))
+      .then((response) => {
+        try {
+          done(response.data)
+        } catch (err) {
+          console.error(err)
+        }
+      })
       .catch((error) => console.error(`Could not call users: ` + JSON.stringify(error)))
   },
 

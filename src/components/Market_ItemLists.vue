@@ -62,7 +62,7 @@
       }
     },
     mounted () {
-      services.itemlists.read({}, data => {
+      services.itemlists.read({limit: 200}, data => {
         this.itemLists = data
       })
     }

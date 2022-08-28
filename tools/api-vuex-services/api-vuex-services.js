@@ -7,7 +7,7 @@ require('./js/helpers.js')
 
 let output_dir = process.argv[2]
 if (!output_dir) {
-  output_dir = '../../src/vuex/api/services/'
+  output_dir = `${__dirname}/../../src/vuex/api/services/`
 }
 if (!fs.existsSync(output_dir)) {
   fs.mkdirSync(output_dir)
@@ -49,8 +49,8 @@ function ready (allspec) {
   generate_index(allspec)
 }
 
-const api_service_template = handlebars.compile(fs.readFileSync('templates/api-service.hbs', 'UTF-8'))
-const service_module_template = handlebars.compile(fs.readFileSync('templates/service-module.hbs', 'UTF-8'))
+const api_service_template = handlebars.compile(fs.readFileSync(`${__dirname}/templates/api-service.hbs`, 'UTF-8'))
+const service_module_template = handlebars.compile(fs.readFileSync(`${__dirname}/templates/service-module.hbs`, 'UTF-8'))
 
 function generate_api (ctx) {
   const data = api_service_template(ctx)

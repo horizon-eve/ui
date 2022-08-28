@@ -122,8 +122,8 @@
         Object.assign(this.$data, this.$options.data())
         this.saved = false
       },
-      async searchItems (query) {
-        await services.item_types.read({type_name: `like=${query}`}, function (data) {
+      searchItems: function (query) {
+        services.item_types.read({type_name: `ilike=${query}`}, data => {
           this.itemSuggestions = data
         })
       },
@@ -225,7 +225,7 @@
               })
             })
             const query = Object.keys(items).map(n => `"${n}"`).join(',')
-            services.item_types.read({type_name: `in=${query}`, limit: 100}, data => {
+            services.item_types.read({type_name: `in=${query}`, limit: 200}, data => {
               let refined = []
               data.forEach(i => {
                 let item = items[i.type_name]

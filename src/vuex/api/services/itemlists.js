@@ -10,7 +10,13 @@ export default {
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
-      .then((response) => done(response.data.id))
+      .then((response) => {
+        try {
+          done(response.data.id)
+        } catch (err) {
+          console.error(err)
+        }
+      })
       .catch((error) => console.error(`Could not call itemlists: ` + JSON.stringify(error)))
   },
 
@@ -20,11 +26,14 @@ export default {
         'content-type': 'application/x-www-form-urlencoded',
         'x-hr-authtoken': store.state.auth.auth_token
       },
-      paramsSerializer: function (params) {
-        return Object.keys(params).map(k => `${k}=${params[k]}`).join('&')
-      },
       params: params })
-      .then((response) => done(response.data))
+      .then((response) => {
+        try {
+          done(response.data)
+        } catch (err) {
+          console.error(err)
+        }
+      })
       .catch((error) => console.error(`Could not call itemlists: ` + JSON.stringify(error)))
   },
 
@@ -35,7 +44,13 @@ export default {
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
-      .then((response) => done(response.data))
+      .then((response) => {
+        try {
+          done(response.data)
+        } catch (err) {
+          console.error(err)
+        }
+      })
       .catch((error) => console.error(`Could not call itemlists: ` + JSON.stringify(error)))
   },
 
@@ -46,7 +61,13 @@ export default {
         'x-hr-authtoken': store.state.auth.auth_token
       }
     })
-      .then((response) => done(response))
+      .then((response) => {
+        try {
+          done(response.data)
+        } catch (err) {
+          console.error(err)
+        }
+      })
       .catch((error) => console.error(`Could not call itemlists: ` + JSON.stringify(error)))
   },
 
